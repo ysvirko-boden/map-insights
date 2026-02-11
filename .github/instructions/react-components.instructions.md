@@ -5,11 +5,11 @@ applyTo: "src/frontend/src/components/**/*.tsx,src/frontend/src/components/**/*.
 # React Component Guidelines
 
 ## Component Structure
-- Keep components small and focused on a single responsibility
+- Keep components small and focused on a single responsibility (<200 lines)
 - Use functional components with hooks exclusively
 - Export components as named exports for better tree-shaking
 - Define props interface/type before the component
-- Use TypeScript for all component definitions
+- Use TypeScript strict mode for all component definitions
 
 ## TypeScript Patterns
 - Always define explicit prop types using `interface` or `type`
@@ -42,10 +42,11 @@ applyTo: "src/frontend/src/components/**/*.tsx,src/frontend/src/components/**/*.
 - Use children prop for composition
 
 ## Styling
-- Use CSS Modules for scoped styles (`Button.module.css`)
-- Use className instead of inline styles unless dynamic
-- Compose classnames with template literals or clsx library
-- Follow BEM naming convention in CSS Modules
+- Use CSS Modules for scoped styles (`ComponentName.module.css`)
+- Co-locate CSS file with component
+- Use className instead of inline styles unless dynamic values
+- Compose classnames with clsx library for conditional classes
+- Use camelCase for CSS Module class names
 
 ## Event Handlers
 - Name handlers with `handle` prefix (e.g., `handleClick`)

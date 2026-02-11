@@ -1,0 +1,42 @@
+@MapInsights.Api_HostAddress = http://localhost:5181
+
+GET {{MapInsights.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+### Search Places with Categories
+POST {{MapInsights.Api_HostAddress}}/api/places/search
+Content-Type: application/json
+
+{
+  "viewportBounds": {
+    "north": 54.74018870609468,
+    "south": 54.71976946808703,
+    "east": 25.34846483151331,
+    "west": 25.300356730622198
+  },
+  "categories": ["food_dining", "coffee_shops"],
+  "minimumRating": 4.0,
+  "limit": 30
+}
+
+###
+
+### Search All Categories (No Filter)
+POST {{MapInsights.Api_HostAddress}}/api/places/search
+Content-Type: application/json
+
+{
+  "viewportBounds": {
+    "north": 54.74018870609468,
+    "south": 54.71976946808703,
+    "east": 25.34846483151331,
+    "west": 25.300356730622198
+  },
+  "categories": [],
+  "minimumRating": null,
+  "limit": 50
+}
+
+###

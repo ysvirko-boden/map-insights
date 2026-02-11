@@ -1,0 +1,21 @@
+
+> frontend@0.0.0 lint
+> eslint .
+
+
+C:\Users\y.svirko\projects\map-insights\src\frontend\src\components\Map\PlaceSearchInput.test.tsx
+  68:7  warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+C:\Users\y.svirko\projects\map-insights\src\frontend\src\contexts\AuthContext.test.tsx
+  1:1  warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+C:\Users\y.svirko\projects\map-insights\src\frontend\src\hooks\useAutocompleteSuggestions.test.ts
+   57:7  warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+  193:9  warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-explicit-any')
+
+C:\Users\y.svirko\projects\map-insights\src\frontend\src\hooks\useAutocompleteSuggestions.ts
+  80:7  warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-floating-promises')
+
+тЬЦ 5 problems (0 errors, 5 warnings)
+  0 errors and 5 warnings potentially fixable with the `--fix` option.
+

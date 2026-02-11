@@ -97,3 +97,6 @@ Thumbs.db
 # Application specific
 appsettings.Development.json
 appsettings.Production.json
+src/frontend/.playwright-cli/
+src/frontend/coverage/
+.playwright-cli/

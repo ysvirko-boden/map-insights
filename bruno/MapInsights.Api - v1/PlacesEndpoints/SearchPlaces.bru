@@ -1,0 +1,63 @@
+meta {
+  name: SearchPlaces
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/places/search
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "viewportBounds": {
+      "north": 54.74018870609468,
+      "south": 54.71976946808703,
+      "east": 25.34846483151331,
+      "west": 25.300356730622198
+    },
+    "categories": ["food_dining", "coffee_shops"],
+    "minimumRating": 4.0,
+    "limit": 30
+  }
+}
+
+example {
+  name: 200 Response
+  description: OK
+  
+  request: {
+    url: {{baseUrl}}/api/places/search
+    method: POST
+    mode: json
+    body:json: {
+      {
+        "viewportBounds": {
+          "north": 54.74,
+          "south": 54.71,
+          "east": 25.34,
+          "west": 25.30
+        },
+        "categories": ["attractions", "shopping"],
+        "minimumRating": 3.5,
+        "limit": 50
+      }
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+  
+      '''
+    }
+  }
+}

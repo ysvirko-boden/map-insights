@@ -1,0 +1,31 @@
+.location-button {
+  background-color: var(--map-control-bg);
+  border: 1px solid var(--map-control-border);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-primary);
+  transition: all 0.2s ease-in-out;
+  box-shadow: var(--map-control-shadow);
+}
+
+.location-button:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-primary-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.location-button:active {
+  background-color: var(--bg-active);
+}
+
+.location-icon {
+  width: 24px;
+  height: 24px;
+}

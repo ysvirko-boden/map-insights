@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "MapInsights.Api | v1",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

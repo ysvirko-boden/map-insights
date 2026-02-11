@@ -1,0 +1,70 @@
+.result-limit-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.result-limit-select__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.result-limit-select__options {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+}
+
+.result-limit-select__option {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.result-limit-select__option:hover {
+  background-color: var(--bg-hover);
+}
+
+.result-limit-select__option:has(input:focus) {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: -2px;
+}
+
+.result-limit-select__radio {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.result-limit-select__radio:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.result-limit-select__option-text {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.result-limit-select__option input:disabled ~ .result-limit-select__option-text {
+  opacity: 0.5;
+}
+
+/* Responsive: Stack options on very small screens */
+@media (max-width: 400px) {
+  .result-limit-select__options {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -7,8 +7,9 @@ applyTo: "src/frontend/src/types/**/*.ts,src/frontend/src/types/**/*.d.ts"
 ## File Organization
 - One main type/interface per file for complex types
 - Group related types in same file for simpler cases
-- Use `.d.ts` only for ambient declarations
+- Use `.d.ts` only for ambient declarations (e.g., vite-env.d.ts)
 - Export all types that are used outside the file
+- Use `export type` syntax to clearly mark type-only exports
 
 ## Naming Conventions
 - Use PascalCase for interfaces and types
@@ -17,10 +18,11 @@ applyTo: "src/frontend/src/types/**/*.ts,src/frontend/src/types/**/*.d.ts"
 - Suffix with type category when helpful (e.g., `UserResponse`, `ApiError`)
 
 ## Interface vs Type
-- Prefer `interface` for object shapes and class contracts
+- Prefer `interface` for object shapes and component props
 - Use `type` for unions, intersections, and primitives
-- Use `type` for tuples and mapped types
-- `interface` can be extended, `type` cannot (use intersection instead)
+- Use `type` for tuples, mapped types, and function signatures
+- `interface` can be extended and merged, `type` uses intersections
+- Both work for most cases - consistency matters more than choice
 
 ## Best Practices
 
@@ -82,6 +84,19 @@ export type UserRole = typeof UserRole[keyof typeof UserRole];
 export enum UserRole {
   ADMIN = 'admin',
   USER = 'user',
+}
+```
+
+### Environment Variables
+- Vite environment variables in `import.meta.env` return `any` type in strict mode
+- Use type assertion for known variables:
+```typescript
+const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string;
+```
+- Alternatively, extend `ImportMetaEnv` in `vite-env.d.ts`:
+```typescript
+interface ImportMetaEnv {
+  readonly VITE_GOOGLE_MAPS_API_KEY: string;
 }
 ```
 

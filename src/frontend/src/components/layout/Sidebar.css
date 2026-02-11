@@ -1,0 +1,54 @@
+/* Sidebar container - width controlled by AppLayout grid */
+.sidebar {
+  background-color: var(--sidebar-bg);
+  border-left: 1px solid var(--sidebar-border);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Main content wrapper with consistent spacing */
+.sidebar-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Individual sections within sidebar */
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Places list section - grows to fill available space */
+.sidebar-places-list {
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  /* Sidebar width controlled by AppLayout grid */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    height: auto;
+    max-height: 50vh;
+    border-left: none;
+    border-top: 1px solid var(--sidebar-border);
+  }
+
+  .sidebar-content {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

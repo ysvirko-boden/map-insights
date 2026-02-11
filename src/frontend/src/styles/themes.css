@@ -1,0 +1,206 @@
+/**
+ * Theme CSS Custom Properties
+ * 
+ * Light theme is the default (:root)
+ * Dark theme overrides are defined in [data-theme="dark"]
+ */
+
+/* ============================================
+   LIGHT THEME (Default)
+   ============================================ */
+:root {
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --bg-hover: #f1f3f5;
+  --bg-active: #e9ecef;
+  
+  /* Text Colors */
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --text-muted: #6c757d;
+  --text-disabled: #adb5bd;
+  --text-inverse: #ffffff;
+  
+  /* Border Colors */
+  --border-default: #dee2e6;
+  --border-subtle: #e9ecef;
+  --border-strong: #adb5bd;
+  
+  /* Interactive States */
+  --color-hover: #f8f9fa;
+  --color-active: #e9ecef;
+  --color-focus: rgba(66, 133, 244, 0.25);
+  
+  /* Semantic Colors */
+  --color-error: #dc3545;
+  --color-error-bg: #f8d7da;
+  --color-error-border: #f5c2c7;
+  
+  --color-success: #198754;
+  --color-success-bg: #d1e7dd;
+  --color-success-border: #badbcc;
+  
+  --color-warning: #ffc107;
+  --color-warning-bg: #fff3cd;
+  --color-warning-border: #ffecb5;
+  
+  --color-info: #0dcaf0;
+  --color-info-bg: #cff4fc;
+  --color-info-border: #b6effb;
+  
+  /* Brand Colors */
+  --color-brand-primary: #4285f4;
+  --color-brand-primary-hover: #3367d6;
+  --color-brand-primary-active: #2851a3;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.15);
+  
+  /* Overlays */
+  --overlay-light: rgba(255, 255, 255, 0.9);
+  --overlay-dark: rgba(0, 0, 0, 0.5);
+  
+  /* Component-specific */
+  --card-bg: #ffffff;
+  --card-border: #dee2e6;
+  --card-shadow: var(--shadow-md);
+  
+  --input-bg: #ffffff;
+  --input-border: #ced4da;
+  --input-border-focus: #4285f4;
+  --input-text: #212529;
+  --input-placeholder: #6c757d;
+  
+  --button-bg: #ffffff;
+  --button-border: #dee2e6;
+  --button-text: #212529;
+  --button-hover-bg: #f8f9fa;
+  
+  --sidebar-bg: #f8f9fa;
+  --sidebar-border: #dee2e6;
+  
+  --header-bg: #ffffff;
+  --header-border: #dee2e6;
+  
+  --footer-bg: #f8f9fa;
+  --footer-border: #dee2e6;
+  --footer-text: #6c757d;
+  
+  /* Map-specific */
+  --map-control-bg: #ffffff;
+  --map-control-border: #dee2e6;
+  --map-control-shadow: var(--shadow-md);
+  
+  --marker-bg: #4285f4;
+  --marker-text: #ffffff;
+  --marker-border: #ffffff;
+  
+  /* Rating stars */
+  --rating-star-filled: #ffc107;
+  --rating-star-empty: #dee2e6;
+}
+
+/* ============================================
+   DARK THEME
+   ============================================ */
+[data-theme='dark'] {
+  /* Background Colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-tertiary: #2d2d2d;
+  --bg-hover: #333333;
+  --bg-active: #3a3a3a;
+  
+  /* Text Colors */
+  --text-primary: #e9ecef;
+  --text-secondary: #adb5bd;
+  --text-muted: #868e96;
+  --text-disabled: #495057;
+  --text-inverse: #1a1a1a;
+  
+  /* Border Colors */
+  --border-default: #3a3a3a;
+  --border-subtle: #2d2d2d;
+  --border-strong: #495057;
+  
+  /* Interactive States */
+  --color-hover: #2d2d2d;
+  --color-active: #333333;
+  --color-focus: rgba(66, 133, 244, 0.4);
+  
+  /* Semantic Colors */
+  --color-error: #f56565;
+  --color-error-bg: #2d1a1f;
+  --color-error-border: #4a2328;
+  
+  --color-success: #48bb78;
+  --color-success-bg: #1a2e22;
+  --color-success-border: #234a30;
+  
+  --color-warning: #f6ad55;
+  --color-warning-bg: #2d2416;
+  --color-warning-border: #4a3919;
+  
+  --color-info: #4fd1c5;
+  --color-info-bg: #1a2d2c;
+  --color-info-border: #234a47;
+  
+  /* Brand Colors */
+  --color-brand-primary: #5a9aff;
+  --color-brand-primary-hover: #6ba7ff;
+  --color-brand-primary-active: #7cb4ff;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 8px 16px rgba(0, 0, 0, 0.6);
+  
+  /* Overlays */
+  --overlay-light: rgba(26, 26, 26, 0.9);
+  --overlay-dark: rgba(0, 0, 0, 0.7);
+  
+  /* Component-specific */
+  --card-bg: #242424;
+  --card-border: #3a3a3a;
+  --card-shadow: var(--shadow-lg);
+  
+  --input-bg: #2d2d2d;
+  --input-border: #3a3a3a;
+  --input-border-focus: #5a9aff;
+  --input-text: #e9ecef;
+  --input-placeholder: #868e96;
+  
+  --button-bg: #2d2d2d;
+  --button-border: #3a3a3a;
+  --button-text: #e9ecef;
+  --button-hover-bg: #333333;
+  
+  --sidebar-bg: #242424;
+  --sidebar-border: #3a3a3a;
+  
+  --header-bg: #1a1a1a;
+  --header-border: #3a3a3a;
+  
+  --footer-bg: #242424;
+  --footer-border: #3a3a3a;
+  --footer-text: #868e96;
+  
+  /* Map-specific */
+  --map-control-bg: #2d2d2d;
+  --map-control-border: #3a3a3a;
+  --map-control-shadow: var(--shadow-lg);
+  
+  --marker-bg: #5a9aff;
+  --marker-text: #1a1a1a;
+  --marker-border: #1a1a1a;
+  
+  /* Rating stars */
+  --rating-star-filled: #f6ad55;
+  --rating-star-empty: #3a3a3a;
+}

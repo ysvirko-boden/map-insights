@@ -1,0 +1,61 @@
+/**
+ * MarkerContent component styles
+ * Defines appearance for different marker states
+ */
+
+.marker-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid white;
+}
+
+.marker-icon {
+  font-size: 20px;
+  transform: rotate(45deg);
+  line-height: 1;
+}
+
+/* Search results markers - blue */
+.marker-content--search {
+  background-color: #4285f4;
+}
+
+.marker-content--search:hover {
+  transform: rotate(-45deg) scale(1.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Selected marker - red and larger */
+.marker-content--selected {
+  background-color: #ea4335;
+  transform: rotate(-45deg) scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  border-width: 3px;
+}
+
+/* Autocomplete marker - yellow */
+.marker-content--autocomplete {
+  background-color: #fbbc04;
+}
+
+.marker-content--autocomplete:hover {
+  transform: rotate(-45deg) scale(1.1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure selected markers appear above others */
+.marker-content--selected::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  z-index: -1;
+}

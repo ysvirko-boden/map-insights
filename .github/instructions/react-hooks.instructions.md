@@ -61,9 +61,10 @@ export function useFetch<T>(url: string) {
 - Avoid creating memory leaks (event listeners, timers, subscriptions)
 
 ## Testing
-- Test hooks using @testing-library/react-hooks or renderHook
+- Test hooks using renderHook from @testing-library/react
 - Test hook behavior, not implementation
 - Verify cleanup functions are called
+- Use Vitest's describe/it/expect for test structure
 
 ## Performance
 - Memoize expensive computations with useMemo
@@ -75,3 +76,10 @@ export function useFetch<T>(url: string) {
 - Don't use hooks outside of React components or custom hooks
 - Avoid returning too many values (>5) - consider restructuring
 - Don't duplicate built-in React hooks behavior
+
+## Best Practices
+- Return object for hooks with >2 values: `{ data, loading, error }`
+- Return array for pairs: `[value, setValue]`
+- Use `as const` for array returns to preserve tuple types
+- Prefix internal functions with underscore if exposed
+- Document hook parameters and return values with JSDoc

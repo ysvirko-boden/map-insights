@@ -5,16 +5,16 @@ applyTo: "src/frontend/src/store/**/*.ts,src/frontend/src/store/**/*.tsx,src/fro
 # State Management Guidelines
 
 ## State Management Strategy
-- Use React Context for simple global state
-- Use Zustand for complex client state
-- Use TanStack Query (React Query) for server state
+- Use React Context for simple global state (theme, auth)
+- Use Zustand for complex client state (places filters, UI state)
+- Use custom hooks like useLocalStorage for persistence
 - Keep state as local as possible
 
 ## React Context
 
 ### When to Use
-- Authentication state
 - Theme/UI preferences
+- Authentication state
 - Simple global flags
 - Values that don't change frequently
 
@@ -63,10 +63,10 @@ export function useAuth() {
 ## Zustand
 
 ### When to Use
-- Complex client state
+- Complex client state (places filters, selection, hidden items)
 - State shared across many components
 - State that updates frequently
-- Need for middleware (persist, devtools)
+- Need for devtools middleware
 
 ### Store Structure
 ```typescript
@@ -109,6 +109,8 @@ export const useStore = create<StoreState>()(
 
 ### Selectors
 ```typescript
+import { shallow } from 'zustand/shallow';
+
 // Subscribe to specific slice
 const count = useStore((state) => state.count);
 
@@ -185,26 +187,47 @@ export function useCreateUser() {
 1. Does only one component need it? → Local state (useState)
 2. Do parent and child need it? → Lift to common parent
 3. Do siblings need it? → Lift to common parent or Context
-4. Is it server data? → TanStack Query
-5. Is it complex client state used everywhere? → Zustand
-6. Is it simple global state? → React Context
+4. Is it complex client state used everywhere? → Zustand
+5. Is it simple global state? → React Context
+6. Does it need persistence? → useLocalStorage + useState/Context
 
 ## Performance
 - Avoid creating new objects in selectors
-- Use shallow equality for object selectors
+- Use Zustand selectors to subscribe to specific slices
 - Memoize context values
 - Split large contexts
 - Use React.memo strategically on consumers
+- Handle Set/Map objects carefully in Zustand (create new instances for updates)
 
 ## Anti-Patterns
 - Don't put all state in global store
 - Avoid using Context for frequently changing values
 - Don't mix server and client state in same store
 - Avoid prop drilling - but don't over-globalize
-- Don't use Redux patterns in Zustand (no switch statements)
+- Don't use Redux patterns in Zustand (no switch statements, no action types)
+- Don't forget to create new Set/Map instances when updating (spreads don't work)
 
 ## Testing
 - Mock context providers in tests
-- Test store actions independently
-- Use React Query's testing utilities
+- Test store actions independently using Zustand's getState/setState
 - Verify state updates happen correctly
+- Test localStorage persistence with mock storage
+
+### Example: Testing Zustand Store
+```typescript
+describe('placesStore', () => {
+  beforeEach(() => {
+    usePlacesStore.setState({
+      filters: DEFAULT_FILTERS,
+      selectedPlaceId: null,
+    });
+  });
+
+  it('should update filters', () => {
+    const { setFilters } = usePlacesStore.getState();
+    setFilters({ minimumRating: 4.0 });
+
+    expect(usePlacesStore.getState().filters.minimumRating).toBe(4.0);
+  });
+});
+```

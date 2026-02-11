@@ -72,15 +72,18 @@ describe('Button', () => {
 ## Hook Testing
 ```typescript
 import { renderHook, waitFor } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
 
-test('useFetch returns data', async () => {
-  const { result } = renderHook(() => useFetch('/api/users'));
-  
-  await waitFor(() => {
-    expect(result.current.loading).toBe(false);
+describe('useFetch', () => {
+  it('returns data after loading', async () => {
+    const { result } = renderHook(() => useFetch('/api/users'));
+    
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+    });
+    
+    expect(result.current.data).toBeDefined();
   });
-  
-  expect(result.current.data).toBeDefined();
 });
 ```
 
@@ -141,6 +144,23 @@ vi.useRealTimers();
 - Avoid accessing component instance or state
 - Don't make tests dependent on each other
 - Avoid large setup blocks - use helper functions
+
+## E2E Testing with Playwright CLI
+
+**When to use:** Test complete user flows, map interactions, geolocation, external API integrations
+
+For detailed Playwright CLI commands and workflows, refer to the **playwright-cli** skill. It covers:
+- Browser session management and interaction
+- Geolocation testing and mocking
+- Screenshot and snapshot capture
+- Console output inspection
+
+### E2E Test Documentation
+- Create test scenario file: `tests/e2e/[feature-name].test.md`
+- Document expected behavior, steps, and success criteria
+- Take screenshots at key states
+- Create test report: `tests/e2e/[feature-name]-report.md` after execution
+- Do NOT create separate README files for e2e tests
 
 ## Performance
 - Use `vi.mock` at module level, not in beforeEach
