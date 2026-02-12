@@ -85,20 +85,19 @@ Optional steps (except where noted as required):
 - **Precise prompts**: More specific prompts produce more accurate implementations
 - **Instructions-first approach**: Starting with proper instructions and updating them iteratively is more efficient than ad-hoc prompting
 - **Agent reflection**: Asking agents to reflect on sessions and update instructions helps improve future results
-- **Skills over MCP servers**: Skills are more powerful; in most cases, MCP servers can be replaced with proper skills or simple CLI utilities (e.g., prefer `gh` CLI over GitHub MCP)
-- **Focused tools**: During this project, only one skill (playwright-cli) was needed for automating testing
+- **Skills over MCP servers**: Skills are more powerful and token-efficient; in most cases, MCP servers can be replaced with proper skills or simple CLI utilities (e.g., prefer `gh` CLI over GitHub MCP, [playwright-cli](https://github.com/microsoft/playwright-cli) skill other [Playwright MCP](https://github.com/microsoft/playwright-mcp))
 
 ### Customer Project Learnings (not used in the current project)
 
-- **Custom prompts are underestimated**: Many routine tasks can be automated with custom prompts (e.g., starting work on a Jira ticket, preparing PRs for review, generating release notes, creating documentation from code changes)
+- **Custom prompts are underestimated**: Many routine tasks can be automated with custom prompts (e.g., starting work on a Jira ticket, preparing PRs for review, generating release notes)
 - **Custom skills for domain expertise**: Skills can teach agents to work with customer-specific resources, services, and infrastructure (e.g., AWS SSO authentication, log search and analysis, deployment workflows, internal API interactions)
-- **Specialized agents for non-coding tasks**: Specialized agents are powerful for specific domains, but general coding agents suffice for development work. Best use cases: documentation writing agents, web research agents, domain-specific analysis agents (e.g., security audits, performance analysis)
+- **Specialized agents for non-coding tasks**: Specialized agents are powerful for specific domains, but general coding agents suffice for development work. Best use cases: documentation writing agents, web research agents, domain-specific analysis agents (e.g., security audits)
 
 ### Additional Notes / Personal Impressions
 
 - **Demo vs. real projects**: The approach and workflow used in this demo project differs from real-world enterprise development
 - **"Vibe-code an app" limitations**: Building an app through high-level prompts works for demos, but real project development workflows require more structure and rigor
-- **Granularity matters**: Production features are typically more granular with stricter quality requirements, detailed specifications, and comprehensive edge case handling
+- **Granularity matters**: Production features are typically more granular with stricter quality requirements, detailed specifications
 
 ## Development Workflow
 
